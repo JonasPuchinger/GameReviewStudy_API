@@ -33,6 +33,15 @@ router.get("/get-email-sheet", function(req, res, next) {
     res.json(emailSheet);
 });
 
+router.get("/get-next-captcha", function(req, res, next) {
+    reviewSheet.getRows(function(err, rows) {
+        captchas = rows.map((row) => row["captchatype"]);
+        captchaCounts = captchas.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {})
+        captchaCountsSorted = Object.keys(captchaCounts).sort((a, b) => (captchaCounts[a] - captchaCounts[b]));
+        res.json(captchaCountsSorted);
+    });
+});
+
 router.post("/insert-row", function(req, res, next) {
     let data = req.body;
     console.log(data);

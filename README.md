@@ -21,4 +21,4 @@ The corresponding frontend can be found [here](https://github.com/JonasPuchinger
 
 You can use this as a template for your own project.
 You need to switch out the routes and logic defined in `routes/`.
-Furthermore, you also need to change the config files in `helpers/` with your own.
+Furthermore, you also need to put your config files in `helpers/`.
